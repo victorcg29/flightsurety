@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>FlightSurety</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">FlightSurety</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+
+<main class="container">
+
+    <div id="display-wrapper-operational-status" class="top-20"></div>
+
+    <div id="display-contract-balance" class="top-20"></div>
+
+    <div style="border:2px solid white" class="mb-2">
+        <h4>Airline</h4>
+        <div id="display-wrapper-funding-status" class="top-20"></div>
+        <div id="display-airline">
+            <label for="airline1">Airline</label><select id="airline1"></select>
+            <label for="fundAmount">Fund Amount (ETH)</label><input type="text" id="fundAmount" value="10"/>&nbsp;&nbsp;
+            <button class="btn btn-primary" id="fund">Fund Airline</button>
+        </div>
+    </div>
+
+    <br/>
+
+    <div style="border:2px solid white" class="mb-2">
+        <h4>Flight</h4>
+        <div id="display-wrapper-flight-status" class="top-20"></div>
+        <div class="form-inline">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label for="flights1">Flight</label>&nbsp;&nbsp;
+            <select id="flights1"></select>&nbsp;&nbsp;
+            <div id="flightInfo1"></div>&nbsp;&nbsp;
+    
+            <button class="btn btn-primary" id="submit-oracle">Submit to Oracles</button>
+        </div>
+    </div>
+
+    <br/>
+
+    <div style="border:2px solid white" class="mb-2">
+        <h2>Passenger</h2>
+        <h4>Purchase Flight Insurance</h4>
+        <div id="display-wrapper-insurance-info" class="top-20"></div>
+        <div id="display-wrapper-insurance-status" class="top-20"></div>
+        <div class="form-inline">
+            &nbsp;&nbsp;&nbsp;&nbsp;<label for="flights2">Flight</label>
+            <select id="flights2"></select>
+            <div id="flightInfo2"></div>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;<label for="insurance">Amount (ETH)</label><input type="text" id="insurance" value="1"/>
+            <button class="btn btn-primary" id="buy">Buy Insurance</button>
+        </div>
+        <h4>Claim Flight Insurance</h4>
+        <h5>Flight Status</h5>
+        <div class="form-inline">
+            &nbsp;&nbsp;&nbsp;&nbsp;<label for="flights3">Flight</label>
+            <select id="flights3"></select>
+            <div id="flightInfo3"></div>
+    
+            <button class="btn btn-primary" id="flight-status">Get Flight Status</button>
+            <div id="flightStatusInfo"></div>
+        </div>
+    
+        <h5>Passenger Status</h5>
+        <div id="display-claim-insurance" class="form-inline">
+            &nbsp;&nbsp;&nbsp;&nbsp;<label id="passCredit">Passenger Insurance Credit : </label></br>
+            <label id="passCreditAmt"></label>
+            <button class="btn btn-primary" id="getCredit">Get Credit</button>
+    
+            <br/>
+    
+            <label id="passBal">Passenger Account Balance : </label>
+            <label id="passBalAmt"></label>
+            <button class="btn btn-primary" id="getBalance">Get Balance</button>
+        </div>
+    
+        <h4>Withdraw Insurance Credit</h4>
+        <Button class="btn btn-primary" id="withdraw">Withdraw</Button>
+        <div id="withdraw-status"></div>
+    </div>  
+
+    <br/>
+
+
+
+</main>
+
+<script type="text/javascript" src="bundle.js"></script></body>
+
+</html>
