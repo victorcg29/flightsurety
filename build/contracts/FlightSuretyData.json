@@ -19182,10 +19182,22 @@
       "links": {},
       "address": "0x345cA3e014Aaf5dcA488057592ee47305D9B3e10",
       "transactionHash": "0x59381cf0fd31ac5238cae8678c947e4544bd56759b09c95332010a28f6cc9b9f"
+    },
+    "1571478908298": {
+      "events": {},
+      "links": {},
+      "address": "0x345cA3e014Aaf5dcA488057592ee47305D9B3e10",
+      "transactionHash": "0x59381cf0fd31ac5238cae8678c947e4544bd56759b09c95332010a28f6cc9b9f"
+    },
+    "1571481306352": {
+      "events": {},
+      "links": {},
+      "address": "0x345cA3e014Aaf5dcA488057592ee47305D9B3e10",
+      "transactionHash": "0x59381cf0fd31ac5238cae8678c947e4544bd56759b09c95332010a28f6cc9b9f"
     }
   },
   "schemaVersion": "3.0.16",
-  "updatedAt": "2019-10-19T00:42:15.193Z",
+  "updatedAt": "2019-10-19T10:35:39.465Z",
   "devdoc": {
     "methods": {
       "buy(string,uint256,address,address,uint256)": {

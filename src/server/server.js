@@ -47,8 +47,8 @@ web3.eth.getAccounts(async (error, accounts) => {
 flightSuretyApp.events.OracleRequest({
     fromBlock: 0
   }, async function (error, event) {
-    if (error) console.log(error)
-    console.log(event)
+    if (error) console.log(`Error: ${error}`)
+    // console.log(`Event: ${event}`)
     let statusCodes = [0, 10, 20, 30, 40, 50];
     //FlightSuretyApp contract with random status code of Unknown (0), On Time (10) or Late Airline (20), Late Weather (30), Late Technical (40), or Late Other (50)
     let statusCode = statusCodes[Math.floor(Math.random() * statusCodes.length)];
@@ -56,11 +56,14 @@ flightSuretyApp.events.OracleRequest({
     let indexes;
     let oracle;
 
+    // console.log(`Length: ${registeredOracles.length}`);
+
     // loop through all registered oracles, identify those oracles for which the OracleRequest event applies,
     for (let i = 0; i < registeredOracles.length; i++) {
         indexes = registeredOracles[i][1];
+        // console.log(`Indexes: ${indexes}`);
 
-        if (indexes.indexOf(index.toString()) !== -1) {
+        if (indexes.indexOf(event.returnValues.index.toString()) !== -1) {
             oracle = registeredOracles[i][0];
             try {
                 await flightSuretyApp.methods

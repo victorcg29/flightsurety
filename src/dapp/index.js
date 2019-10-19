@@ -67,11 +67,13 @@ import './flightsurety.css';
             let flight = DOM.elid('flights1').value;
             // Write transaction
             contract.fetchFlightStatus(flight, (error, result) => {
-                displayFlightStatus('display-wrapper-flight-status', 'Oracles', 'Trigger oracles', "0", [{
+                console.log(`RESULTTTT: ${result}`);
+                displayFlightStatus('display-wrapper-flight-status', 'Oracles', 'Trigger oracles', '', [{
                     label: 'Fetch Flight Status',
                     error: error,
                     value: result.flight + ' ' + result.timestamp
                 }]);
+
             });
         });
 
@@ -84,7 +86,7 @@ import './flightsurety.css';
                 contract.flightStatusInfoEvent(result2 => {
                     console.log(result2);
                     flightStatus = result2.status;
-                    displayFlightStatus('flightStatusInfo', 'Flight Status', '', flightStatus, [{
+                    displayFlightStatus('flightStatusInfo', 'Flight Status', result2.status, flightStatus, [{
                         label: 'Flight Status : ',
                         error: error,
                         value: result.flight + ' ' + result.timestamp
@@ -144,7 +146,7 @@ import './flightsurety.css';
 
         DOM.elid('withdraw').addEventListener('click', () => {
             // Write transaction
-            contract.withdraw(contract.passengers[1], (result) => {
+            contract.withdraw(contract.passengers[0], (result) => {
                 DOM.elid('withdraw-status').innerHTML = DOM.elid('withdraw-status').innerHTML + "<br> TX ID: " + result;
                 getContractBalance();
                 getPassengerCredits();

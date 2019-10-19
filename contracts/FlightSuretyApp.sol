@@ -403,6 +403,7 @@ contract FlightSuretyApp {
 
             emit FlightStatusInfo(airline, flight, timestamp, statusCode);
 
+
             // Handle flight status as appropriate
             _processFlightStatus(airline, flight, timestamp, statusCode);
         }

@@ -6,7 +6,8 @@ export default class Contract {
     constructor(network, callback) {
 
         let config = Config[network];
-        this.web3 = new Web3(new Web3.providers.HttpProvider(config.url));
+        //this.web3 = new Web3(new Web3.providers.HttpProvider(config.url));
+        this.web3 = new Web3(new Web3.providers.WebsocketProvider(config.url.replace('http', 'ws')));
         this.flightSuretyApp = new this.web3.eth.Contract(FlightSuretyApp.abi, config.appAddress);
         this.initialize(callback);
         this.owner = null;
@@ -144,10 +145,11 @@ export default class Contract {
 
     async flightStatusInfoEvent(callback) {
         let self = this;
-        await self.flightSuretyApp.events.FlightStatusInfo({}, function(error, event) {
+        await self.flightSuretyApp.events.FlightStatusInfo({}, async function(error, event) {
             if(error) {
-                console.log(error);
+                console.log(`${error}`);
             } else {
+
                 callback(event.returnValues);
             }
         })
